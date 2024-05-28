@@ -40,7 +40,7 @@ python src/graphsage_dominant.py
 python src/graphsage_anomalydae.py
 python src/graphsage_aegis.py
 
-All the competing methods are adapted to mini-batch training and semi-supervised settings.
+All the competing methods are adapted to mini-batch training and semi-supervised setting.
 
 ## Datasets
 For convenience, some datasets can be obtained from https://drive.google.com/drive/folders/1rEKW5JLdB1VGwyJefAD8ppXYDAXc5FFj?usp=sharing
