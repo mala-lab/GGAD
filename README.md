@@ -64,4 +64,4 @@ If you use this package and find it useful, please cite our paper using the foll
 [1] Liu, Kay, et al. "Pygod: A python library for graph outlier detection." arXiv preprint arXiv:2204.12095 (2022).  \
 [2] Tang, Jianheng, et al. "GADBench: Revisiting and Benchmarking Supervised Graph Anomaly Detection." arXiv preprint arXiv:2306.12251 (2023). \
 [3]Liu, Kay, et al. "Bond: Benchmarking unsupervised outlier node detection on static attributed graphs." Advances in Neural Information Processing Systems 35 (2022): 27021-27035. \
-[4] Huang, Xuanwen, et al. "Dgraph: A large-scale financial dataset for graph anomaly detection." Advances in Neural Information Processing Systems 35 (2022): 22765-22777. \
+[4] Huang, Xuanwen, et al. "Dgraph: A large-scale financial dataset for graph anomaly detection." Advances in Neural Information Processing Systems 35 (2022): 22765-22777.
