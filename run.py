@@ -231,7 +231,7 @@ with tqdm(total=args.num_epoch) as pbar:
             model.eval()
             train_flag = False
             emb, emb_combine, logits, emb_con, emb_abnormal = model(features, adj, abnormal_label_idx, normal_label_idx,
-                                                                    train_flag)
+                                                                    train_flag,, args)
             # evaluation on the valid and test node
             logits = np.squeeze(logits[:, idx_test, :].cpu().detach().numpy())
             auc = roc_auc_score(ano_label[idx_test], logits)
