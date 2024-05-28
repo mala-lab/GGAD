@@ -41,8 +41,12 @@ python src/graphsage_dominant.py
 python src/graphsage_anomalydae.py
 python src/graphsage_aegis.py
 
-All the competing methods are adapted to mini-batch training and semi-supervised setting.
-DGraph can be downloaded from  https://dgraph.xinye.com/introduction
+All the competing methods are adapted to mini-batch training and semi-supervised settings.
+
+
+For convenience, some datasets can be obtained from https://drive.google.com/drive/folders/1rEKW5JLdB1VGwyJefAD8ppXYDAXc5FFj?usp=sharing
+We sincerely thank the researchers for providing these datasets.
+Due to the Copyright of DGraph-Fin and Elliptic, you need to download these datasets by yourself.
 
 >📋  Pick a licence and describe how to contribute to your code repository. 
 
@@ -58,7 +62,7 @@ If you use this package and find it useful, please cite our paper using the foll
 ```
 
 ## Acknowledgement and Reference
-[1] Liu, Kay, et al. "Pygod: A python library for graph outlier detection." arXiv preprint arXiv:2204.12095 (2022).
-[2] Tang, Jianheng, et al. "GADBench: Revisiting and Benchmarking Supervised Graph Anomaly Detection." arXiv preprint arXiv:2306.12251 (2023).
-[3]Liu, Kay, et al. "Bond: Benchmarking unsupervised outlier node detection on static attributed graphs." Advances in Neural Information Processing Systems 35 (2022): 27021-27035.
-[4] Huang, Xuanwen, et al. "Dgraph: A large-scale financial dataset for graph anomaly detection." Advances in Neural Information Processing Systems 35 (2022): 22765-22777.
+[1] Liu, Kay, et al. "Pygod: A python library for graph outlier detection." arXiv preprint arXiv:2204.12095 (2022).  \
+[2] Tang, Jianheng, et al. "GADBench: Revisiting and Benchmarking Supervised Graph Anomaly Detection." arXiv preprint arXiv:2306.12251 (2023). \
+[3]Liu, Kay, et al. "Bond: Benchmarking unsupervised outlier node detection on static attributed graphs." Advances in Neural Information Processing Systems 35 (2022): 27021-27035. \
+[4] Huang, Xuanwen, et al. "Dgraph: A large-scale financial dataset for graph anomaly detection." Advances in Neural Information Processing Systems 35 (2022): 22765-22777. \
