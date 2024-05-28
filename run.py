@@ -18,20 +18,18 @@ import time
 parser = argparse.ArgumentParser(description='')
 
 parser.add_argument('--dataset', type=str,
-                    default='reddit')
+                    default='Amazon')
 parser.add_argument('--lr', type=float)
 parser.add_argument('--weight_decay', type=float, default=0.0)
 parser.add_argument('--seed', type=int, default=0)
 parser.add_argument('--embedding_dim', type=int, default=300)
 parser.add_argument('--num_epoch', type=int)
 parser.add_argument('--drop_prob', type=float, default=0.0)
+parser.add_argument('--batch_size', type=int, default=300)
+parser.add_argument('--subgraph_size', type=int, default=4)
 parser.add_argument('--readout', type=str, default='avg')  # max min avg  weighted_sum
 parser.add_argument('--auc_test_rounds', type=int, default=256)
 parser.add_argument('--negsamp_ratio', type=int, default=1)
-parser.add_argument('--mean', type=float, default=0.0)
-parser.add_argument('--var', type=float, default=0.0)
-
-
 
 args = parser.parse_args()
 
@@ -58,13 +56,9 @@ if args.num_epoch is None:
         args.num_epoch = 500
     elif args.dataset in ['Amazon']:
         args.num_epoch = 800
-if args.dataset in ['reddit']:
-    args.mean = 0.02
-    args.var = 0.01
-else:
-    args.mean = 0.0
-    args.var = 0.0
 
+batch_size = args.batch_size
+subgraph_size = args.subgraph_size
 
 print('Dataset: ', args.dataset)
 
@@ -136,7 +130,10 @@ optimiser = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.w
 
 b_xent = nn.BCEWithLogitsLoss(reduction='none', pos_weight=torch.tensor([args.negsamp_ratio]))
 xent = nn.CrossEntropyLoss()
-
+cnt_wait = 0
+best = 1e9
+best_t = 0
+batch_num = nb_nodes // batch_size + 1
 
 # Train model
 with tqdm(total=args.num_epoch) as pbar:
@@ -149,14 +146,13 @@ with tqdm(total=args.num_epoch) as pbar:
 
         # Train model
         train_flag = True
-        emb, emb_combine, logits, emb_con, emb_abnormal = model(features, adj,
-                                                                abnormal_label_idx, normal_label_idx,
-                                                                train_flag, args)
+        emb, emb_combine, logits, emb_con, emb_abnormal = model(features, adj, abnormal_label_idx, normal_label_idx,
+                                                                train_flag)
         if epoch % 10 == 0:
             # save data for tsne
             pass
 
-            # tsne_data_path = 'draw/tfinance/tsne_data_{}.mat'.format(str(epoch))
+            # tsne_data_path = 'draw/tfinance_recon_total/tsne_data_{}.mat'.format(str(epoch))
             # io.savemat(tsne_data_path, {'emb': np.array(emb.cpu().detach()), 'ano_label': ano_label,
             #                             'abnormal_label_idx': np.array(abnormal_label_idx),
             #                             'normal_label_idx': np.array(normal_label_idx)})
@@ -190,17 +186,16 @@ with tqdm(total=args.num_epoch) as pbar:
         affinity_normal_mean = torch.mean(affinity[normal_label_idx])
         affinity_abnormal_mean = torch.mean(affinity[abnormal_label_idx])
 
-        # if epoch % 10 == 0:
-        #     real_abnormal_label_idx = np.array(all_idx)[np.argwhere(ano_label == 1).squeeze()].tolist()
-        #     real_normal_label_idx = np.array(all_idx)[np.argwhere(ano_label == 0).squeeze()].tolist()
-        #     overlap = list(set(real_abnormal_label_idx) & set(real_normal_label_idx))
-        #
-        #     real_affinity, index = torch.sort(affinity[real_abnormal_label_idx])
-        #     real_affinity = real_affinity[:150]
-        #     draw_pdf(np.array(affinity[real_normal_label_idx].detach().cpu()),
-        #              np.array(affinity[abnormal_label_idx].detach().cpu()),
-        #              np.array(real_affinity.detach().cpu()), args.dataset, epoch)
+        if epoch % 10 == 0:
+            real_abnormal_label_idx = np.array(all_idx)[np.argwhere(ano_label == 1).squeeze()].tolist()
+            real_normal_label_idx = np.array(all_idx)[np.argwhere(ano_label == 0).squeeze()].tolist()
+            overlap = list(set(real_abnormal_label_idx) & set(real_normal_label_idx))
 
+            real_affinity, index = torch.sort(affinity[real_abnormal_label_idx])
+            real_affinity = real_affinity[:50]
+            draw_pdf(np.array(affinity[real_normal_label_idx].detach().cpu()),
+                     np.array(affinity[abnormal_label_idx].detach().cpu()),
+                     np.array(real_affinity.detach().cpu()), args.dataset, epoch)
         confidence_margin = 0.7
         loss_margin = (confidence_margin - (affinity_normal_mean - affinity_abnormal_mean)).clamp_min(min=0)
 
@@ -231,7 +226,7 @@ with tqdm(total=args.num_epoch) as pbar:
             model.eval()
             train_flag = False
             emb, emb_combine, logits, emb_con, emb_abnormal = model(features, adj, abnormal_label_idx, normal_label_idx,
-                                                                    train_flag,, args)
+                                                                    train_flag)
             # evaluation on the valid and test node
             logits = np.squeeze(logits[:, idx_test, :].cpu().detach().numpy())
             auc = roc_auc_score(ano_label[idx_test], logits)
