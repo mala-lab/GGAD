@@ -196,7 +196,7 @@ with tqdm(total=args.num_epoch) as pbar:
         #     overlap = list(set(real_abnormal_label_idx) & set(real_normal_label_idx))
         #
         #     real_affinity, index = torch.sort(affinity[real_abnormal_label_idx])
-        #     real_affinity = real_affinity[:50]
+        #     real_affinity = real_affinity[:150]
         #     draw_pdf(np.array(affinity[real_normal_label_idx].detach().cpu()),
         #              np.array(affinity[abnormal_label_idx].detach().cpu()),
         #              np.array(real_affinity.detach().cpu()), args.dataset, epoch)
