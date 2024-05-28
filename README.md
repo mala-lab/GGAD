@@ -43,7 +43,8 @@ python src/graphsage_aegis.py
 All the competing methods are adapted to mini-batch training and semi-supervised setting.
 
 ## Datasets
-For convenience, some datasets can be obtained from https://drive.google.com/drive/folders/1rEKW5JLdB1VGwyJefAD8ppXYDAXc5FFj?usp=sharing
+For convenience, some datasets can be obtained from https://drive.google.com/drive/folders/1rEKW5JLdB1VGwyJefAD8ppXYDAXc5FFj?usp=sharing.
+
 We sincerely thank the researchers for providing these datasets.
 Due to the Copyright of DGraph-Fin and Elliptic, you need to download these datasets by yourself.
 
