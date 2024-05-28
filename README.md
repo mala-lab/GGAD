@@ -21,7 +21,6 @@ pip install -r requirements.txt
 GGAD is implemented in Pytorch 1.6.0 with Python 3.7. and all the experiments are run on a 24-core CPU.
 
 
-Note that considering it's difficult to conduct an evaluation on the isolated nodes in the graph, they were removed before modeling.
 ## Training 
 
 To run the all the model(s) in the paper, run this command:
@@ -34,7 +33,7 @@ python run/dominant/anomalyDAE/ocgnn/aegis/gaan.py
 
 ## Training on DGraph 
 
-To run all the model on the DGraph, 
+To run all the models on the DGraph, 
 
 python src/main.py  
 python src/graphsage_dominant.py  
@@ -43,7 +42,7 @@ python src/graphsage_aegis.py
 
 All the competing methods are adapted to mini-batch training and semi-supervised settings.
 
-
+## Datasets
 For convenience, some datasets can be obtained from https://drive.google.com/drive/folders/1rEKW5JLdB1VGwyJefAD8ppXYDAXc5FFj?usp=sharing
 We sincerely thank the researchers for providing these datasets.
 Due to the Copyright of DGraph-Fin and Elliptic, you need to download these datasets by yourself.
