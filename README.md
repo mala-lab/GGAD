@@ -51,7 +51,7 @@ Due to the Copyright of DGraph-Fin, you need to download from [DGraph-Fin](https
 
 If you use this package and find it useful, please cite our paper using the following BibTeX. Thanks! :)
 
-```
+```bibtex
 @article{qiao2024generative,
   title={Generative Semi-supervised Graph Anomaly Detection},
   author={Qiao, Hezhe and Wen, Qingsong and Li, Xiaoli and Lim, Ee-Peng and Pang, Guansong},
