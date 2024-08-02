@@ -123,7 +123,7 @@ def load_mat(dataset, train_rate=0.3, val_rate=0.1):
     # feat[real_abnormal_id, :int(replace_rate)] = normal_feat[:, :int(replace_rate)]
 
     random.shuffle(normal_label_idx)
-    abnormal_label_idx = normal_label_idx[: int(len(normal_label_idx) * 0.05)]
+    abnormal_label_idx = normal_label_idx[: int(len(normal_label_idx) * 0.05)]  # 0.15 for reddit
     return adj, feat, ano_labels, all_idx, idx_train, idx_val, idx_test, ano_labels, str_ano_labels, attr_ano_labels, normal_label_idx, abnormal_label_idx
 
 
