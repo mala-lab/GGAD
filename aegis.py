@@ -119,7 +119,7 @@ with tqdm(total=args.num_epoch) as pbar:
     pbar.set_description('Training')
 
     for epoch in range(args.recon_num_epoch):
-        loss_dis, loss_g, loss_ae, score_test, emb_all = model(features, adj, idx_train, idx_test)
+        loss_dis, loss_g, loss_ae, score_test, emb_all = model(features, adj, normal_label_idx, idx_test)
         # loss_dis, loss_g, loss_ae, score_test, emb_all = model(features, adj, all_idx, idx_test)
         loss_ae.backward()
         optimiser_ae.step()
@@ -131,7 +131,7 @@ with tqdm(total=args.num_epoch) as pbar:
         optimiser.zero_grad()
         optimiser_gen.zero_grad()
         # Train model
-        # loss_dis, loss_g, loss_ae, score_test, emb_all = model(features, adj, idx_train, idx_test)
+        # loss_dis, loss_g, loss_ae, score_test, emb_all = model(features, adj, normal_label_idx, idx_test)
         loss_dis, loss_g, loss_ae, score_test, emb_all = model(features, adj, all_idx, idx_test)
         loss_g.backward(retain_graph=True)
         loss_dis.backward(retain_graph=True)
