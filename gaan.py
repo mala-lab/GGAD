@@ -127,7 +127,7 @@ with tqdm(total=args.num_epoch) as pbar:
         optimiser.zero_grad()
         optimiser_gen.zero_grad()
         # Train model
-        # loss, loss_g, score_test = model(features, adj, idx_train, idx_test)
+        # loss, loss_g, score_test = model(features, adj, normal_label_idx, idx_test)
         loss, loss_g, score_test = model(features, adj, all_idx, idx_test)
         loss.backward()
         loss_g.backward()
