@@ -159,9 +159,11 @@ class ModelHandler(object):
 
                 optimizer.zero_grad()
                 if args.cuda:
-                    loss, loss_constraint = gnn_model.loss(batch_nodes, Variable(torch.cuda.LongTensor(batch_label)))
+                    loss, loss_cls, loss_constraint, loss_rec = gnn_model.loss(batch_nodes, Variable(
+                        torch.cuda.LongTensor(batch_label)))
                 else:
-                    loss, loss_constraint = gnn_model.loss(batch_nodes, Variable(torch.LongTensor(batch_label)))
+                    loss, loss_cls, loss_constraint, loss_rec = gnn_model.loss(batch_nodes,
+                                                                               Variable(torch.LongTensor(batch_label)))
                 loss.backward()
                 optimizer.step()
                 end_time = time.time()
