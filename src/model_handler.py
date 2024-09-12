@@ -35,7 +35,7 @@ class ModelHandler(object):
             # idx_valid, idx_test, y_valid, y_test = train_test_split(idx_rest, y_rest, stratify=y_rest, test_size=args.test_ratio,
             # 														random_state=2, shuffle=True)
 
-            # only split rhe normal labeled node and unlabeled nodes
+            # only split the normal labeled node and unlabeled nodes
             idx_normal = [i for i in index if labels[i] == 0]
             random.shuffle(idx_normal)
             idx_labeled = idx_normal[0: int(len(idx_normal) * 0.3)]
