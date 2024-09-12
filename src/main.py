@@ -8,7 +8,7 @@ import sys
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, [1]))
 os.environ["KMP_DUPLICATE_LnIB_OK"] = "TRUE"
-from model_handler import ModelHandler
+from model_handler2 import ModelHandler
 import os
 
 ################################################################################
@@ -85,7 +85,8 @@ def get_config(config_path="config.yml"):
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", type=str, default='dgraph.yml',  help="")
+    # parser.add_argument('-config', '--config', required=True, type=str, help='config/pcgnn_amazon.yml')
+    parser.add_argument("--config", type=str, default='../config/pcgnn_dgraph.yml',  help="")
     parser.add_argument('--multi_run', action='store_true', help='flag: multi run')
     args = vars(parser.parse_args())
     return args
