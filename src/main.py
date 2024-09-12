@@ -8,7 +8,7 @@ import sys
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, [1]))
 os.environ["KMP_DUPLICATE_LnIB_OK"] = "TRUE"
-from model_handler2 import ModelHandler
+from model_handler import ModelHandler
 import os
 
 ################################################################################
