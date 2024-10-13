@@ -58,7 +58,7 @@ if args.num_epoch is None:
         args.num_epoch = 500
     elif args.dataset in ['Amazon']:
         args.num_epoch = 800
-if args.dataset in ['reddit']:
+if args.dataset in ['reddit', 'Photo']:
     args.mean = 0.02
     args.var = 0.01
 else:
