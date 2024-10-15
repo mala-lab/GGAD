@@ -25,7 +25,7 @@ GGAD is implemented in Pytorch 1.6.0 with Python 3.7. and all the experiments ar
 
 To run the all the model(s) in the paper, run this command:
 
-python run/dominant/anomalyDAE/ocgnn/aegis/gaan.py
+python run/dominant/anomalyDAE/ocgnn/aegis/gaan/tam.py
 
 
  To effectively incorporate the normal information into these unsupervised methods, for the reconstruction models, DOMINANT and AnomalyDAE, the data reconstruction is performed on the labeled normal nodes only during training. In OCGNN, the one-class center is optimized based on the labeled normal nodes exclusively. In TAM, we train the model by maximizing the affinity on the normal nodes only. As for AEGIS and GAAN, the normal nodes combined with their generated outliers are used to train an adversarial classifier.
