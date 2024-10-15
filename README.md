@@ -7,7 +7,7 @@ The full paper can be found at NeurIPS [Portal](https://neurips.cc/virtual/2024/
 [//]: # ( Optional: include a graphic explaining your approach/main result, bibtex entry, link to demos, blog posts and tutorials)
 >📋  This work considers a practical semi-supervised graph anomaly detection (GAD) scenario, where part of the nodes in a graph are known to be normal, contrasting to the extensively explored unsupervised setting with a fully unlabeled graph. We reveal that having access to the normal nodes, even just a small percentage of normal nodes, helps enhance the detection performance of existing unsupervised GAD methods when they are adapted to the semi-supervised setting. However, their utilization of these normal nodes is limited. In this paper, we propose a novel Generative GAD approach (namely GGAD) for the semi-supervised scenario to better exploit the normal nodes. The key idea is to generate pseudo anomaly nodes, referred to as 'outlier nodes', for providing effective negative node samples in training a discriminative one-class classifier. The main challenge here lies in the lack of ground truth information about real anomaly nodes. To address this challenge, GGAD is designed to leverage two important priors about the anomaly nodes -- asymmetric local affinity and egocentric closeness -- to generate reliable outlier nodes that assimilate anomaly nodes in both graph structure and feature representations. Comprehensive experiments on six real-world GAD datasets are performed to establish a benchmark for semi-supervised GAD and show that GGAD substantially outperforms state-of-the-art unsupervised and semi-supervised GAD methods with varying numbers of training normal nodes.
 
-![Framework of GGAD](framework.jpg)
+![Framework of GGAD](framework.png)
 ## Requirements
 
 To install requirements:
@@ -29,6 +29,9 @@ python run/dominant/anomalyDAE/ocgnn/aegis/gaan.py
 
 
  To effectively incorporate the normal information into these unsupervised methods, for the reconstruction models, DOMINANT and AnomalyDAE, the data reconstruction is performed on the labeled normal nodes only during training. In OCGNN, the one-class center is optimized based on the labeled normal nodes exclusively. In TAM, we train the model by maximizing the affinity on the normal nodes only. As for AEGIS and GAAN, the normal nodes combined with their generated outliers are used to train an adversarial classifier.
+
+The affinity margin α is set to 0.7 across all datasets. The perturbation in Eq. (5) is drawn from a Gaussian distribution, with mean and standard variance set to 0.02 and
+0.01 for small datasets including Photo and Reddit. The mean and standard variance are set to 0 and 0 for other larger datasets. The size of the generated outlier nodes S is set to 5% for Amazon and 15% for other datasets.
 
 
 ## Training on DGraph 
