@@ -50,6 +50,15 @@ For convenience, some datasets can be obtained from [google drive link](https://
 We sincerely thank the researchers for providing these datasets.
 Due to the Copyright of DGraph-Fin, you need to download from [DGraph-Fin](https://dgraph.xinye.com/introduction).
 
+| Dataset | Type | Nodes| Edges      | Attributes         | Anomalies(Rate) |
+|--------|-------------|----------|----------------|----------|----------|
+|Amazon |Co-review |11,944 |4,398,392| 25| 821(6.9%)|
+|T-Finance| Transaction| 39,357 2|1,222,543 |10 |1,803(4.6%)|
+|Reddit| Social Media |10,984| 168,016 |64| 366(3.3%)|
+|Elliptic| Bitcoin Transaction| 46,564 |73,248| 93 |4,545(9.76%)|
+|Photo| Co-purchase| 7,535| 119,043| 745| 698(9.2%)|
+|DGraph| Financial Networks| 3,700,550 |73,105,508| 17 |15,509(1.3%)|
+
 >📋  Pick a licence and describe how to contribute to your code repository. 
 
 If you use this package and find it useful, please cite our paper using the following BibTeX. Thanks! :)
