@@ -55,7 +55,7 @@ Due to the Copyright of DGraph-Fin, you need to download from [DGraph-Fin](https
 |Amazon |Co-review |11,944 |4,398,392| 25| 821(6.9%)|
 |T-Finance| Transaction| 39,357 2|1,222,543 |10 |1,803(4.6%)|
 |Reddit| Social Media |10,984| 168,016 |64| 366(3.3%)|
-|Elliptic| Bitcoin Transaction| 46,564 |73,248| 93 |4,545(9.76%)|
+|Elliptic| Bitcoin Transaction| 46,564 |73,248| 93 |4,545(9.8%)|
 |Photo| Co-purchase| 7,535| 119,043| 745| 698(9.2%)|
 |DGraph| Financial Networks| 3,700,550 |73,105,508| 17 |15,509(1.3%)|
 
