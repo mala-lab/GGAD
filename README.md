@@ -31,7 +31,7 @@ python run/dominant/anomalyDAE/ocgnn/aegis/gaan/tam.py
  To effectively incorporate the normal information into these unsupervised methods, for the reconstruction models, DOMINANT and AnomalyDAE, the data reconstruction is performed on the labeled normal nodes only during training. In OCGNN, the one-class center is optimized based on the labeled normal nodes exclusively. In TAM, we train the model by maximizing the affinity on the normal nodes only. As for AEGIS and GAAN, the normal nodes combined with their generated outliers are used to train an adversarial classifier.
 
 The affinity margin α is set to 0.7 across all datasets. The perturbation in Eq. (5) is drawn from a Gaussian distribution, with mean and standard variance set to 0.02 and
-0.01 for small datasets including Photo and Reddit. The mean and standard variance are set to 0 and 0 for other larger datasets. The size of the generated outlier nodes S is set to 5% for Amazon and 15% for other datasets.
+0.01 for small datasets including Photo and Reddit. The mean and standard variance are set to 0 and 0 for other larger datasets. The size of the generated outlier nodes S is set to 5% for Amazon and 15% for other datasets based on loss convergence.
 
 
 ## Training on DGraph 
