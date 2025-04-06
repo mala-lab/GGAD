@@ -38,7 +38,7 @@ args = parser.parse_args()
 if args.lr is None:
     if args.dataset in ['Amazon']:
         args.lr = 1e-3
-    elif args.dataset in ['tf_finace']:
+    elif args.dataset in ['t_finance']:
         args.lr = 1e-3
     elif args.dataset in ['reddit']:
         args.lr = 1e-3
@@ -54,7 +54,7 @@ if args.num_epoch is None:
         args.num_epoch = 150
     if args.dataset in ['reddit']:
         args.num_epoch = 300
-    elif args.dataset in ['tf_finace']:
+    elif args.dataset in ['t_finance']:
         args.num_epoch = 500
     elif args.dataset in ['Amazon']:
         args.num_epoch = 800
