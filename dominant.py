@@ -18,7 +18,7 @@ os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 # Set argument
 parser = argparse.ArgumentParser(description='')
 parser.add_argument('--dataset', type=str,
-                    default='tf_finace')  # ' tolokers_no_isolated 'BlogCatalog'  'Flickr'  'ACM'  'cora'  'citeseer'  'pubmed'
+                    default='t_finance')  # ' tolokers_no_isolated 'BlogCatalog'  'Flickr'  'ACM'  'cora'  'citeseer'  'pubmed'
 parser.add_argument('--lr', type=float)
 parser.add_argument('--weight_decay', type=float, default=0.0)
 parser.add_argument('--seed', type=int, default=0)
@@ -36,7 +36,7 @@ args = parser.parse_args()
 if args.lr is None:
     if args.dataset in ['Amazon']:
         args.lr = 1e-3
-    elif args.dataset in ['tf_finace']:
+    elif args.dataset in ['t_finance']:
         args.lr = 5e-4
     elif args.dataset in ['reddit']:
         args.lr = 1e-3
@@ -50,7 +50,7 @@ if args.num_epoch is None:
 
     if args.dataset in ['reddit']:
         args.num_epoch = 500
-    elif args.dataset in ['tf_finace']:
+    elif args.dataset in ['t_finance']:
         args.num_epoch = 1500
     elif args.dataset in ['Amazon']:
         args.num_epoch = 800
