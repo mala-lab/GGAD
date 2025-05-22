@@ -116,6 +116,16 @@ def load_mat(dataset, train_rate=0.3, val_rate=0.1):
     # normal_label_idx = normal_label_idx + add_abnormal_id
     # idx_test = np.setdiff1d(idx_test, add_abnormal_id, False)
 
+    # contamination 
+    # real_abnormal_id = np.array(all_idx)[np.argwhere(ano_labels == 1).squeeze()].tolist()
+    # add_rate = 0.05 * len(real_abnormal_id)  #0.05 0.1  0.15
+    # remove_rate = 0.15 * len(real_abnormal_id)
+    # random.shuffle(real_abnormal_id)
+    # add_abnormal_id = real_abnormal_id[:int(add_rate)]
+    # remove_abnormal_id = real_abnormal_id[:int(remove_rate)]
+    # normal_label_idx = normal_label_idx + add_abnormal_id
+    # idx_test = np.setdiff1d(idx_test, remove_abnormal_id, False)
+
     # camouflage
     # real_abnormal_id = np.array(all_idx)[np.argwhere(ano_labels == 1).squeeze()].tolist()
     # normal_feat = np.mean(feat[normal_label_idx], 0)
