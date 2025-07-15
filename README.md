@@ -39,10 +39,8 @@ The affinity margin α is set to 0.7 across all datasets. The perturbation in Eq
 To run all the models on the DGraph, 
 
 python src/main.py  
-python src/graphsage_dominant.py  
-python src/graphsage_anomalydae.py
-python src/graphsage_aegis.py
 
+Replacing the corresponding model handle to run the baselines 
 All the competing methods are adapted to mini-batch training and semi-supervised setting.
 
 ## Datasets
