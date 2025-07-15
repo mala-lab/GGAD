@@ -7,7 +7,7 @@ import torch
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-from utils import test_pcgnn, test_sage, load_data, pos_neg_split, normalize, pick_step
+from utils import test_ggad, test_sage, load_data, pos_neg_split, normalize, pick_step
 from model import PCALayer
 from layers import InterAgg, IntraAgg
 from graphsage import *
