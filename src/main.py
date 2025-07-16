@@ -83,10 +83,17 @@ def get_config(config_path="config.yml"):
         config = yaml.load(setting, Loader=yaml.FullLoader)
     return config
 
+# def get_args():
+#     parser = argparse.ArgumentParser()
+#     # parser.add_argument('-config', '--config', required=True, type=str, help='config/pcgnn_amazon.yml')
+#     parser.add_argument("--config", type=str, default='../config/pcgnn_dgraph.yml',  help="")
+#     parser.add_argument('--multi_run', action='store_true', help='flag: multi run')
+#     args = vars(parser.parse_args())
+#     return args
+
 def get_args():
     parser = argparse.ArgumentParser()
-    # parser.add_argument('-config', '--config', required=True, type=str, help='config/pcgnn_amazon.yml')
-    parser.add_argument("--config", type=str, default='../config/pcgnn_dgraph.yml',  help="")
+    parser.add_argument("--config", type=str, default='dgraph.yml',  help="")
     parser.add_argument('--multi_run', action='store_true', help='flag: multi run')
     args = vars(parser.parse_args())
     return args
